@@ -86,4 +86,25 @@ RETURN n
 start n=node(1) return n
 ----
 
+== A Cypher query result ==
+
+[queryresult]
+----
++-------------------+
+| n                 |
++-------------------+
+| Node[1]{name:"A"} |
+| Node[2]{name:"B"} |
+| Node[3]{name:"C"} |
++-------------------+
+3 rows
+0 ms
+
+----
+
+== Source ==
+
+The source for this example is found at: +
+https://github.com/nawroth/neo4j-deckjs
+
 

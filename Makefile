@@ -39,7 +39,7 @@ SCRIPTDIR        = $(TOOLSDIR)/build
 ASCIDOCDIR       = $(TOOLSDIR)/bin/asciidoc
 ASCIIDOC         = $(ASCIDOCDIR)/asciidoc.py
 A2X              = $(ASCIDOCDIR)/a2x.py
-DECKSDIR         = $(BUILDDIR)/decks
+DECKDIR          = $(BUILDDIR)/deck
 DECKJSDIR        = $(EXTENSIONSRC)/backends/deckjs/deck.js
 
 ifdef VERBOSE
@@ -134,15 +134,15 @@ deck: initialize installextensions
 	# Building deck.js slides.
 	#
 	#
-	mkdir -p "$(DECKSDIR)/deck.js"
-	mkdir -p "$(DECKSDIR)/js"
-	mkdir -p "$(DECKSDIR)/css"
-	mkdir -p "$(DECKSDIR)/images"
-	"$(ASCIIDOC)" $(ASCIIDOC_FLAGS) -b deckjs --conf-file="$(TOOLSCONFDIR)/asciidoc.conf" --conf-file="$(CONFDIR)/asciidoc.conf" --conf-file="$(TOOLSCONFDIR)/deckjs.conf" --attribute console=1 --out-file "$(DECKSDIR)/index.html" "$(SRCDIR)/slides.asciidoc"
-	cp -ru "$(DECKJSDIR)/"* "$(DECKSDIR)/deck.js"
-	cp -ru "$(IMGTARGETDIR)/"* "$(DECKSDIR)/images"
-	cp -ru "$(CSSDIR)/"* "$(DECKSDIR)/css"
-	cp -ru "$(JSDIR)/"* "$(DECKSDIR)/js"
-	#cp -ru "$(IMGDIR)" "$(DECKSDIR)/"
+	mkdir -p "$(DECKDIR)/deck.js"
+	mkdir -p "$(DECKDIR)/js"
+	mkdir -p "$(DECKDIR)/css"
+	mkdir -p "$(DECKDIR)/images"
+	"$(ASCIIDOC)" $(ASCIIDOC_FLAGS) -b deckjs --conf-file="$(TOOLSCONFDIR)/asciidoc.conf" --conf-file="$(CONFDIR)/asciidoc.conf" --conf-file="$(TOOLSCONFDIR)/deckjs.conf" --attribute console=1 --out-file "$(DECKDIR)/index.html" "$(SRCDIR)/slides.asciidoc"
+	cp -fr "$(DECKJSDIR)/"* "$(DECKDIR)/deck.js"
+	cp -fr "$(IMGTARGETDIR)/"* "$(DECKDIR)/images"
+	cp -fr "$(CSSDIR)/"* "$(DECKDIR)/css"
+	cp -fr "$(JSDIR)/"* "$(DECKDIR)/js"
+	#cp -ru "$(IMGDIR)" "$(DECKDIR)/"
 
 
