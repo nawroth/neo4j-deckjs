@@ -1,110 +1,28 @@
-deck.js and Neo4j docs
-======================
+Neo4j Hello World with deck.js
+==============================
 
-////
-== Slide One
+== Query ==
 
-[options="incremental"]
- * item 1
- * item 2
-////
+include::target/snippets/hello-world/hello-world.query.asciidoc[]
 
-== Include code ==
+== Query Result == 
 
-Include source code like in this example:
+include::target/snippets/hello-world/hello-world.result.asciidoc[]
 
-[snippet, java]
-----
-component=neo4j-examples
-source=org/neo4j/examples/EmbeddedNeo4j.java
-classifier=sources
-tag=createReltype
-----
+== Graph == 
 
-by adding this to the slide source:
+include::target/snippets/hello-world/hello-world.graph.asciidoc[]
 
-[source]
-----
- [snippet, java]
- ----
- component=neo4j-examples
- source=org/neo4j/examples/EmbeddedNeo4j.java
- classifier=sources
- tag=createReltype
- ----
-----
+== Live Console ==
 
-== Include a graph == 
-
-This graph:
-
-["dot", "slides-I-KNOW-You.svg", "meta"]
-----
-  I -> You [label="KNOW"]
-----
-
-is created just so:
-[source]
-----
- ["dot", "slides-I-KNOW-You.svg", "meta"]
- ----
-   I -> You [label="KNOW"]
- ----
-----
-
-== Include generated graphs == 
-
-include::{importdir}/neo4j-examples-docs-jar/dev/hello-world-java-graph.txt[]
-
-It's just an include statement:
-
-[source]
-----
- include::{importdir}/neo4j-examples-docs-jar/dev/hello-world-java-graph.txt[]
-----
-
-
-== Include a live console ==
-
-Cypher with syntax highlighting and a live console:
-
-[source,cypher]
-----
-START n=node(1)
-RETURN n
-----
-
-.Console
-[console]
-----
-(1) {"name":"A"}
-(2) {"name":"B"}
-(3) {"name":"C"}
-(1)-[:KNOWS]->(2) {}
-(1)-[:KNOWS]->(3) {}
-
-start n=node(1) return n
-----
-
-== A Cypher query result ==
-
-[queryresult]
-----
-+-------------------+
-| n                 |
-+-------------------+
-| Node[1]{name:"A"} |
-| Node[2]{name:"B"} |
-| Node[3]{name:"C"} |
-+-------------------+
-3 rows
-0 ms
-
-----
+.Execute the query live
+include::target/snippets/hello-world/hello-world.empty.console.asciidoc[]
 
 == Source ==
 
 The source for this example is found at: +
 https://github.com/nawroth/neo4j-deckjs
 
+You need this installed in order do run it: +
+https://github.com/nawroth/cypher-executor
 

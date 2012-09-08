@@ -1,0 +1,7 @@
+Hello World
+CREATE
+  hello = { message : 'Hello, ' },
+  world = { message : 'World!' },
+  hello -[brave:NEXT { message : 'brave Neo4j ' }]-> world
+RETURN hello.message + brave.message + world.message AS message
+
