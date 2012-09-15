@@ -9,7 +9,7 @@ SRCDIR           = $(CURDIR)
 RESOURCEDIR      = $(BUILDDIR)/classes
 SRCFILE          = $(SRCDIR)/$(PROJECTNAME).asciidoc
 IMGDIR           = $(SRCDIR)/images
-IMGTARGETDIR     = $(BUILDDIR)/classes/images
+IMGTARGETDIR     = $(BUILDDIR)/images
 CSSDIR           = $(TOOLSDIR)/main/resources/css
 JSDIR            = $(TOOLSDIR)/main/resources/js
 CONFDIR          = $(SRCDIR)/conf
@@ -138,6 +138,7 @@ deck: initialize installextensions
 	mkdir -p "$(DECKDIR)/js"
 	mkdir -p "$(DECKDIR)/css"
 	mkdir -p "$(DECKDIR)/images"
+	mkdir -p "$(IMGTARGETDIR)"
 	"$(ASCIIDOC)" $(ASCIIDOC_FLAGS) -b deckjs --conf-file="$(TOOLSCONFDIR)/asciidoc.conf" --conf-file="$(CONFDIR)/asciidoc.conf" --conf-file="$(TOOLSCONFDIR)/deckjs.conf" --attribute console=1 --out-file "$(DECKDIR)/index.html" "$(SRCDIR)/slides.asciidoc"
 	cp -fr "$(DECKJSDIR)/"* "$(DECKDIR)/deck.js"
 	cp -fr "$(IMGTARGETDIR)/"* "$(DECKDIR)/images"
